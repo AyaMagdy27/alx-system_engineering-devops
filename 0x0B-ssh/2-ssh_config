@@ -4,4 +4,5 @@ Host web-01
 	Hostname 54.236.25.73
 	User ubuntu
 	PasswordAuthentication no
+	PubkeyAuthentication yes
 	IdentityFile ~/.ssh/school
