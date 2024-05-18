@@ -1,31 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# change nginx server to listen on port 80 and restart
 
-# Check if Nginx is installed
-if ! command -v nginx &> /dev/null; then
-	echo "Nginx is not installed. Installing..."
-	apt-get update
-	apt-get install -y nginx
-fi
-
-# Check if Nginx is running
-if ! service nginx status &> /dev/null; then
-	echo "Nginx is not running. Starting..."
-	service nginx start
-fi
-
-# Check Nginx configuration
-if ! nginx -t &> /dev/null; then
-	echo "Nginx configuration test failed. Exiting."
-	exit 1
-fi
-
-# Check if any other service is using port 80
-if sudo netstat -tuln | grep ':80'; then
-	echo "Another service is using port 80. Exiting."
-	exit 1
-fi
-
-# Restart Nginx
+sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
 service nginx restart
-
-echo "Nginx is configured and listening on port 80."
