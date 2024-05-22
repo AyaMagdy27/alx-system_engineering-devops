@@ -48,6 +48,6 @@ frontend  aysuarex.tech-https-frontend
 
 backend aysuarex.tech-backend
         balance roundrobin
-        server 411970-web-01 54.152.45.126:80 check
-        server 411970-web-02 100.26.239.100:80 check
+        server 914-web-01 54.152.45.126:80 check
+        server 914-web-02 100.26.239.100:80 check
 # end of parameters
