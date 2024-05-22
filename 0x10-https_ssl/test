@@ -1,0 +1,45 @@
+
+n to query DNS records for a specific subdomain
+query_dns() {
+    subdomain=$1
+    domain=$2
+    record_type=$3
+    dig_result=$(dig +short "$subdomain.$domain" "$record_type")
+    if [ -z "$dig_result" ]; then
+        echo "The subdomain $subdomain is not configured with a $record_type record."
+    else
+        echo "The subdomain $subdomain is a $record_type record and points to $dig_result."
+    fi
+}
+
+# Function to display information about a specific subdomain
+display_subdomain_info() {
+    subdomain=$1
+    domain=$2
+    query_dns "$subdomain" "$domain" "A"
+    query_dns "$subdomain" "$domain" "CNAME"
+}
+
+# Function to display information about default subdomains
+display_default_subdomains_info() {
+    domain=$1
+    display_subdomain_info "www" "$domain"
+    display_subdomain_info "lb-01" "$domain"
+    display_subdomain_info "web-01" "$domain"
+    display_subdomain_info "web-02" "$domain"
+}
+
+# Main function
+main() {
+    domain=$1
+    subdomain=$2
+
+    if [ -z "$subdomain" ]; then
+        display_default_subdomains_info "$domain"
+    else
+        display_subdomain_info "$subdomain" "$domain"
+    fi
+}
+
+# Execute the main function with arguments
+main "$@"
