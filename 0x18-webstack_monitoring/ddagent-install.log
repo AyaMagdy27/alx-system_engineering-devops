@@ -1,0 +1,81 @@
+[34m
+* Datadog Agent 7 install script v1.32.0
+[0m
+[34m
+* Installing apt-transport-https, curl and gnupg
+[0m
+Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:2 http://repo.mysql.com/apt/ubuntu focal InRelease
+Hit:3 http://repo.mysql.com/apt/ubuntu bionic InRelease
+Hit:4 http://ppa.launchpad.net/brightbox/ruby-ng/ubuntu focal InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:6 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:7 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Ign:8 https://apt.datadoghq.com stable InRelease
+Hit:9 https://deb.nodesource.com/node_14.x focal InRelease
+Hit:10 https://apt.datadoghq.com stable Release
+Hit:11 https://download.docker.com/linux/ubuntu focal InRelease
+Reading package lists...
+W: Skipping acquire of configured file 'mysql-5.7/binary-amd64/Packages' as repository 'http://repo.mysql.com/apt/ubuntu focal InRelease' doesn't have the component 'mysql-5.7' (component misspelt in sources.list?)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+curl is already the newest version (7.68.0-1ubuntu2.22).
+gnupg is already the newest version (2.2.19-3ubuntu2.2).
+apt-transport-https is already the newest version (2.0.10).
+0 upgraded, 0 newly installed, 0 to remove and 241 not upgraded.
+[34m
+* Installing APT package sources for Datadog
+[0m
+gpg: key 32637D44F14F620E: "Datadog, Inc. Master key (2020-09-08) <package+masterkey@datadoghq.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: key E6266D4AC0962C7D: "Datadog, Inc. APT key (2023-04-20) (APT key) <package+aptkey@datadoghq.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: key 32637D44F14F620E: "Datadog, Inc. Master key (2020-09-08) <package+masterkey@datadoghq.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+gpg: key D3A80E30382E94DE: "Datadog, Inc <package@datadoghq.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+Ign:1 https://apt.datadoghq.com stable InRelease
+Hit:2 https://apt.datadoghq.com stable Release
+Reading package lists...
+  [33mInstalling package(s): datadog-agent datadog-signing-keys
+[0m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  datadog-agent datadog-signing-keys
+0 upgraded, 2 newly installed, 0 to remove and 241 not upgraded.
+Need to get 278 MB of archives.
+After this operation, 1,266 MB of additional disk space will be used.
+W: --force-yes is deprecated, use one of the options starting with --allow instead.
+E: You don't have enough free space in /var/cache/apt/archives/.
+[31mERROR
+Failed to install one or more packages, sometimes it may be
+due to another APT source failing. See the logs above to
+determine the cause.
+If the cause is unclear, please contact Datadog support.
+*****
+
+It looks like you hit an issue when trying to install the Datadog Agent.
+
+    
+
+Troubleshooting and basic usage information for the Datadog Agent are available at:
+
+    https://docs.datadoghq.com/agent/basic_agent_usage/
+[0m
+Do you want to send a failure report to Datadog (including ddagent-install.log)? (y/[n]) Enter an email address so we can follow up: [33m(1/3) Email address invalid: [0m
+
+Enter an email address so we can follow up: [33m(2/3) Email address invalid: n[0m
+
+Enter an email address so we can follow up: [33m(3/3) Email address invalid: [0m
+
+
+If you are still having problems, please send an email to support@datadoghq.com
+with the contents of ddagent-install.log and any information you think would be
+useful and we will do our very best to help you solve your problem.
